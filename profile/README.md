@@ -4,27 +4,28 @@
 
 # Moderne Backpatch Alliance
 
-**Your scanner still flags a patched CVE. This is the proof it's already fixed.**
+**Your scanner still flags a patched CVE.**
 
-### 🔗 [vex.backpatch.moderne.io](https://vex.backpatch.moderne.io)
+### [vex.backpatch.moderne.io](https://vex.backpatch.moderne.io)
 
 </div>
 
 ---
 
-A **backpatch** carries the upstream security fix onto the *exact* release you already
-run — no major-version jump, no rebuilt artifact, a binary drop-in — published as
-`+backpatch.NNN`. Your scanner reads the version number, sees the old release, and flags
-the CVE anyway. The VEX feed is the machine-readable proof that it's patched.
+A backpatch takes the upstream fix for a CVE and applies it to the exact release you
+already run, published as `+backpatch.NNN`. It drops in as a binary replacement: the
+version and behavior don't change, only the vulnerability is gone.
 
-Point Grype, Trivy, JFrog Xray, Sonatype, or Dependency-Track at the feed and the matching
-CVE findings clear. Every statement matches by exact package URL.
+Because the version number stays the same, your scanner reads it as the old release and
+flags the CVE anyway. This feed tells it otherwise. Point Grype, Trivy, JFrog Xray,
+Sonatype, or Dependency-Track at the feed and the matching findings clear; each statement
+is keyed to an exact package URL.
 
 | Format | Scanners | Feed |
 | --- | --- | --- |
-| **OpenVEX** | Grype · Trivy | `https://vex.backpatch.moderne.io/openvex/all.json` |
-| **CycloneDX** | JFrog Xray · Dependency-Track | `https://vex.backpatch.moderne.io/cyclonedx/backpatch-vex.cdx.json` |
+| OpenVEX | Grype, Trivy | `https://vex.backpatch.moderne.io/openvex/all.json` |
+| CycloneDX | JFrog Xray, Dependency-Track | `https://vex.backpatch.moderne.io/cyclonedx/backpatch-vex.cdx.json` |
 
-**→ Configure your scanner and verify a fix at [vex.backpatch.moderne.io](https://vex.backpatch.moderne.io)**
+See [vex.backpatch.moderne.io](https://vex.backpatch.moderne.io) to configure your scanner or verify a specific fix.
 
 <sub>Maintained by [Moderne](https://www.moderne.io).</sub>
