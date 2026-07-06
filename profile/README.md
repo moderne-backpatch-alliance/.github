@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/moderne-backpatch-alliance/.github/main/profile/moderne-icon.png" alt="Moderne Backpatch Alliance" width="96" height="96">
+<img src="https://raw.githubusercontent.com/moderne-backpatch-alliance/.github/main/profile/moderne-icon.svg" alt="Moderne Backpatch Alliance" width="96" height="96">
 
 # Moderne Backpatch Alliance
 
