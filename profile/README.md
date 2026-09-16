@@ -4,28 +4,35 @@
 
 # Moderne Backpatch Alliance
 
-**Your scanner still flags a patched CVE.**
+**Backpatch Alliance is the fellowship of the fix.**
 
-### [vex.backpatch.moderne.io](https://vex.backpatch.moderne.io)
+### [backpatch.moderne.io](https://backpatch.moderne.io)
 
 </div>
 
 ---
 
-A backpatch takes the upstream fix for a CVE and applies it to the exact release you
-already run, published as `+backpatch.NNN`. It drops in as a binary replacement: the
-version and behavior don't change, only the vulnerability is gone.
+A backpatch applies an upstream security fix to an open source release that no longer
+receives fixes, and publishes it under a version derived from that release. A fix for
+`2.14.1` ships as `2.14.1.1-backpatch-00001`.
 
-Because the version number stays the same, your scanner reads it as the old release and
-flags the CVE anyway. This feed tells it otherwise. Point Grype, Trivy, JFrog Xray,
-Sonatype, or Dependency-Track at the feed and the matching findings clear; each statement
-is keyed to an exact package URL.
+Add the repository to your build, then change the version of the library you are patching.
+Anyone can browse the catalog and open any pom. Downloading a backpatch requires an
+Alliance membership, which comes with a username and an access token.
+
+The repository is [backpatch.moderne.io/maven/](https://backpatch.moderne.io/maven/) in
+Maven layout. The same host also serves npm, PyPI, and NuGet.
+
+Scanners compare versions against advisory ranges, and a backpatch version still falls
+inside the range of the release it patches, so they keep reporting a CVE the backpatch
+fixed until they read an attestation. Each statement in the feeds names a backpatched
+artifact by package URL and says whether a CVE is fixed in it.
 
 | Format | Scanners | Feed |
 | --- | --- | --- |
-| OpenVEX | Grype, Trivy | `https://vex.backpatch.moderne.io/openvex/all.json` |
-| CycloneDX | JFrog Xray, Dependency-Track | `https://vex.backpatch.moderne.io/cyclonedx/backpatch-vex.cdx.json` |
+| OpenVEX | Grype, Trivy | `https://backpatch.moderne.io/feeds/openvex/all.json` |
+| CycloneDX | JFrog Xray, Sonatype, Dependency-Track | `https://backpatch.moderne.io/feeds/cyclonedx/all.cdx.json` |
 
-See [vex.backpatch.moderne.io](https://vex.backpatch.moderne.io) to configure your scanner or verify a specific fix.
+See [backpatch.moderne.io/feeds/](https://backpatch.moderne.io/feeds/) to configure a scanner.
 
 <sub>Maintained by [Moderne](https://www.moderne.io).</sub>
